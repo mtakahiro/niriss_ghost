@@ -19,7 +19,8 @@ from niriss_ghost.utils import get_gap,get_ghost,str2bool,tweak_dq,check_keyword
 def run(infiles, files_cat=None, f_verbose=True, rlim=10, frac_ghost=0.01, f_tweak_dq=True, DIR_OUT='./output/',
     f_mirage=True, segmap=None, idarx=100000, keyword_id='label', keyword_flux='source_sum', 
     keyword_xcent='xcentroid', keyword_ycent='ycentroid', keyword_coord='sky_centroid', 
-    f_save_result=True, out_cat=None, file_gap=None, DQ_KEY='DQ'):
+    f_save_result=True, out_cat=None, file_gap=None, DQ_KEY='DQ', f_rootmethod=True, f_gsc=False
+    ):
     '''
     Parameters
     ----------
@@ -35,11 +36,7 @@ def run(infiles, files_cat=None, f_verbose=True, rlim=10, frac_ghost=0.01, f_twe
         file name for gap summary file. If none, this will be niriss_ghost_gap_summary.txt
     '''
     print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\nRunning ghost detection script\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
-    
-
-    # Flags for analysis method;
-    f_rootmethod = True
-    f_gsc = True
+        
 
     if not os.path.exists(DIR_OUT):
         os.mkdir(DIR_OUT)
